@@ -9,10 +9,12 @@ import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -74,7 +76,9 @@ public class ObjectTrackerActivity extends VideoDisplayActivity
         FrameLayout iv = getViewPreview();
         iv.setOnTouchListener(this);
         touchEvent = new TouchEventView(this,null);
+
         dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog.setContentView(touchEvent);
 
